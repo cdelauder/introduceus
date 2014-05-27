@@ -7,17 +7,20 @@ function bindEvents() {
 
 }
 
-function stringifyResponse(response) {
-  var me = response
+function loggedIn(response) {
   debugger
+  var token = response.authResponse.accessToken
+  var login = $.ajax({
+    url: '/login',
+    type: 'POST',
+    data: token.serialize()
+  })  
+  login.done(showPhoto)
+}
+
+function showPhoto(e) {
+  console.log('giggity')
 }
 
 
-// <div id="fb-root"></div>
-// <script>(function(d, s, id) {
-//   var js, fjs = d.getElementsByTagName(s)[0];
-//   if (d.getElementById(id)) return;
-//   js = d.createElement(s); js.id = id;
-//   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1451067045133237&version=v2.0";
-//   fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));</script>
+

@@ -1,0 +1,59 @@
+<h1 class="sitename">Why haven't you introduced us?</h1>
+<h3 class="fblogin">Login with your Facebook account to begin.</h3>
+<script>
+  function statusChangeCallback(response) {
+    console.log(response);
+    debugger
+    if (response.status === 'connected') {
+      loggedIn(response);
+    } else if (response.status === 'not_authorized') {
+      document.getElementById('status').innerHTML = 'I hate you';
+    } else {
+      document.getElementById('status').innerHTML = 'Facebook hates you!';
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1451067045133237',
+      cookie     : true,   
+      xfbml      : true,  
+      version    : 'v2.0' 
+    });
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', loggedIn);
+  }
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button> -->
+<div class="fb-login-button" scope="public_profile,email, user_friends" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="true"></div>
+<div id="status">
+</div>
