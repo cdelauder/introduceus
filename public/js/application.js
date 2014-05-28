@@ -8,7 +8,6 @@ function bindEvents() {
 }
 
 function loggedIn(response) {
-  debugger
   var token = response.authResponse.accessToken
   var user_id = response.authResponse.userID
   var login = $.ajax({
