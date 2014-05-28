@@ -3,7 +3,6 @@
 <script>
   function statusChangeCallback(response) {
     console.log(response);
-    debugger
     if (response.status === 'connected') {
       loggedIn(response);
     } else if (response.status === 'not_authorized') {
