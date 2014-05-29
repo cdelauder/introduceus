@@ -5,7 +5,8 @@ $(document).ready(function() {
 
 
 function bindEvents() {
-
+  $(document).on('dragenter', '#left', hatedPhoto)
+  $(document).on('dragenter', '#right', likedPhoto)
 }
 
 function loggedIn(response) {
@@ -21,9 +22,30 @@ function loggedIn(response) {
 }
 
 function showPhoto(e) {
+  $('h3').text('Swipe right if you like my photo, swipe left if you don\'t.')
   $('#status').text('')
-  $('#status').append('<img src="'+e.photo+'" class="photo">') 
+  $('#status').append('<div id="left"></div><img src="'+e.photo+'" class="photo" draggable="true"><div id="right"></div>') 
 }
 
+function hatedPhoto(e) {
+  $('h3').text('Why didn\'t you like my photo? :(')
+  var changePhoto = $.ajax({
+    url: '/photo',
+    type: 'post',
+  })
+  changePhoto.done(showPhoto)
+}
 
+function likedPhoto(e) {
+  $('h3').text('Yay, you liked my photo! :)')
+  var changePhoto = $.ajax({
+    url: '/photo',
+    type: 'post',
+  })
+  changePhoto.done(showPhoto)
+}
+
+function loggedOut() {
+  $('.status').empty()
+}
 

@@ -1,5 +1,5 @@
-<h1 class="sitename">Why haven't you introduced us?</h1>
-<h3 class="fblogin">Login with your Facebook account to begin.</h3>
+<h1 class="sitename">Pictures of Chris</h1>
+<h3 class="fblogin">Chris needs to login to Facebook to begin.</h3>
 <script>
   function statusChangeCallback(response) {
     console.log(response);
@@ -53,6 +53,7 @@
 
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button> -->
-<div class="fb-login-button" scope="public_profile,email, user_friends" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+<div class="fb-login-button" scope="public_profile, email, user_friends, user_photos" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()"></div>
+
 <div id="status">
 </div>

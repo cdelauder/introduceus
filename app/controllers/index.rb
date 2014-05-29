@@ -9,3 +9,10 @@ post '/login' do
   {photo: @photo}.to_json
 end
 
+post '/photo' do
+  @photo = get_photo(session[:token])
+  content_type JSON
+  {photo: @photo}.to_json
+end
+
+
