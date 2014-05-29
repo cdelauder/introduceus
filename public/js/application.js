@@ -21,7 +21,8 @@ function loggedIn(response) {
 }
 
 function showPhoto(e) {
-  console.log('giggity')
+  $('#status').text('')
+  $('#status').append('<img src="'+e.photo+'" class="photo">') 
 }
 
 

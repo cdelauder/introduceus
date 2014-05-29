@@ -16,3 +16,8 @@ html {
 .sitename {
   font-family: 'Trochut';
 }
+
+.photo {
+  margin-top: 5%;
+  width: 40%;
+}

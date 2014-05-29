@@ -1,13 +1,11 @@
-require 'fb_graph'
+require 'koala'
+
 helpers do
 
   def set_user(token, user_id)
-    @user = FbGraph::User.new('me', :access_token => token).fetch
-    p @user.permissions
-
-    # p @user.friends.fetch(user_id.to_i)
-    # p @friends = FbGraph::User.me(:access_token => token).friends
-    p '*****'
+    @graph = Koala::Facebook::API.new(token)
+    profile = @graph.get_object("me")
+    photo = @graph.get_picture('me')
   end
 
 end

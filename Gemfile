@@ -17,7 +17,7 @@ gem 'rake'
 
 gem 'shotgun'
 
-gem 'fb_graph'
+gem 'koala'
 
 group :test do
   gem 'shoulda-matchers'

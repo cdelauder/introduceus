@@ -15,7 +15,7 @@ require 'pg'
 require 'active_record'
 require 'logger'
 
-require 'fb_graph'
+require 'koala'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
