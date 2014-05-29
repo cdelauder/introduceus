@@ -46,6 +46,10 @@ function likedPhoto(e) {
 }
 
 function loggedOut() {
-  $('.status').empty()
+  $('#status').empty()
+  $.ajax({
+    url: '/logout',
+    type: 'get'
+  })
 }
 

@@ -27,6 +27,7 @@
     });
 
     FB.Event.subscribe('auth.login', loggedIn)
+    FB.Event.subscribe('auth.logout', loggedOut)
 
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);

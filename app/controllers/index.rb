@@ -10,9 +10,14 @@ post '/login' do
 end
 
 post '/photo' do
-  @photo = get_photo(session[:token])
+  @photo = select_photo
   content_type JSON
   {photo: @photo}.to_json
+end
+
+get '/logout' do
+  Photo.delete_all
+  status 200
 end
 
 
