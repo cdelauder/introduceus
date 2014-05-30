@@ -24,7 +24,8 @@ function loggedIn(response) {
 function showPhoto(e) {
   $('h3').text('Swipe right if you like my photo, swipe left if you don\'t.')
   $('#status').text('')
-  $('#status').append('<div id="left"></div><img src="'+e.photo+'" class="photo" draggable="true"><div id="right"></div>') 
+  $('#status').append('<div id="left"></div><img src="'+e.photo+'" class="photo" id="img" draggable="true"><div id="right"></div>') 
+  $('#img').removeClass('photo').addClass('spinin')
 }
 
 function hatedPhoto(e) {
@@ -52,4 +53,7 @@ function loggedOut() {
     type: 'get'
   })
 }
+
+
+
 

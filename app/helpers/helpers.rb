@@ -14,6 +14,8 @@ helpers do
   end
 
   def add_photos_to_db(query_result)
+    # collection = Koala::Facebook::GraphCollection.new(query_result, @graph)
+    # p collection.parse_page_url(url)
     photos =  query_result.map {|json_object| json_object['source']}
     photos.each {|photo| Photo.create(source: photo)}
   end
