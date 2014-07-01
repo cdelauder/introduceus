@@ -1,4 +1,4 @@
 introduceus
 ===========
 
-why haven't you introduce us - the dating app
+why haven't you introduced us - the failed dating app
